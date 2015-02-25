@@ -1,0 +1,9 @@
+c:\users\jesse\documents\visual studio 2013\Projects\ShapeCapture\ShapeCapture\bin\Debug\ShapeCapture.exe.config
+c:\users\jesse\documents\visual studio 2013\Projects\ShapeCapture\ShapeCapture\bin\Debug\ShapeCapture.exe
+c:\users\jesse\documents\visual studio 2013\Projects\ShapeCapture\ShapeCapture\bin\Debug\ShapeCapture.pdb
+c:\users\jesse\documents\visual studio 2013\Projects\ShapeCapture\ShapeCapture\obj\Debug\ShapeCapture.csprojResolveAssemblyReference.cache
+c:\users\jesse\documents\visual studio 2013\Projects\ShapeCapture\ShapeCapture\obj\Debug\ShapeCapture.MainForm.resources
+c:\users\jesse\documents\visual studio 2013\Projects\ShapeCapture\ShapeCapture\obj\Debug\ShapeCapture.Properties.Resources.resources
+c:\users\jesse\documents\visual studio 2013\Projects\ShapeCapture\ShapeCapture\obj\Debug\ShapeCapture.csproj.GenerateResource.Cache
+c:\users\jesse\documents\visual studio 2013\Projects\ShapeCapture\ShapeCapture\obj\Debug\ShapeCapture.exe
+c:\users\jesse\documents\visual studio 2013\Projects\ShapeCapture\ShapeCapture\obj\Debug\ShapeCapture.pdb

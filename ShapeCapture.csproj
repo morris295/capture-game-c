@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{D3CF96C5-07B0-4D14-A26D-1FCD769DB8A6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <NoStandardLibraries>false</NoStandardLibraries>
+    <AssemblyName>WindowsApplication</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>ShapeCapture</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".gitattributes" />
+    <None Include=".git\config" />
+    <None Include=".git\description" />
+    <None Include=".git\FETCH_HEAD" />
+    <None Include=".git\HEAD" />
+    <None Include=".git\hooks\README.sample" />
+    <None Include=".git\index" />
+    <None Include=".git\info\exclude" />
+    <None Include=".git\logs\HEAD" />
+    <None Include=".git\logs\refs\heads\home-revisions" />
+    <None Include=".git\logs\refs\heads\master" />
+    <None Include=".git\logs\refs\remotes\origin\development" />
+    <None Include=".git\logs\refs\remotes\origin\home-revisions" />
+    <None Include=".git\logs\refs\remotes\origin\master" />
+    <None Include=".git\objects\63\ff82266738909695d6f8b1c62c6de5e2fced43" />
+    <None Include=".git\objects\91\1d2da5a64179ce820eb014878c88d076a154e9" />
+    <None Include=".git\objects\bd\b0cabc87cf50106df6e15097dff816c8c3eb34" />
+    <None Include=".git\objects\d9\803fec0e22063c60fafca979d0760ad1cb6fcf" />
+    <None Include=".git\objects\db\807fa46508cb5e98df8c74483db7435bb6d02c" />
+    <None Include=".git\objects\f6\0a9ec01183f8f0286737b0d9d6c974c7b853f6" />
+    <None Include=".git\refs\heads\home-revisions" />
+    <None Include=".git\refs\heads\master" />
+    <None Include=".git\refs\remotes\origin\development" />
+    <None Include=".git\refs\remotes\origin\home-revisions" />
+    <None Include=".git\refs\remotes\origin\master" />
+    <None Include="README.md" />
+    <None Include="ShapeCapture\App.config" />
+    <None Include="ShapeCapture\bin\Debug\ShapeCapture.exe.config" />
+    <None Include="ShapeCapture\bin\Debug\ShapeCapture.vshost.exe.config" />
+    <None Include="ShapeCapture\obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
+    <None Include="ShapeCapture\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="ShapeCapture\obj\Debug\ShapeCapture.csproj.GenerateResource.Cache" />
+    <None Include="ShapeCapture\obj\Debug\ShapeCapture.csprojResolveAssemblyReference.cache" />
+    <None Include="ShapeCapture\Properties\Settings.settings" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".git\ms-persist.xml" />
+    <Content Include="ShapeCapture\bin\Debug\ShapeCapture.exe" />
+    <Content Include="ShapeCapture\bin\Debug\ShapeCapture.pdb" />
+    <Content Include="ShapeCapture\bin\Debug\ShapeCapture.vshost.exe" />
+    <Content Include="ShapeCapture\obj\Debug\ShapeCapture.csproj.FileListAbsolute.txt" />
+    <Content Include="ShapeCapture\obj\Debug\ShapeCapture.exe" />
+    <Content Include="ShapeCapture\obj\Debug\ShapeCapture.pdb" />
+    <Content Include="ShapeCapture\ShapeCapture.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ShapeCapture\CaptureGame.cs" />
+    <Compile Include="ShapeCapture\Collector.cs" />
+    <Compile Include="ShapeCapture\EllipseCaptureShape.cs" />
+    <Compile Include="ShapeCapture\ICaptureShape.cs" />
+    <Compile Include="ShapeCapture\ICollector.cs" />
+    <Compile Include="ShapeCapture\IShape.cs" />
+    <Compile Include="ShapeCapture\MainForm.cs" />
+    <Compile Include="ShapeCapture\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShapeCapture\obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="ShapeCapture\obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="ShapeCapture\obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="ShapeCapture\Program.cs" />
+    <Compile Include="ShapeCapture\Properties\AssemblyInfo.cs" />
+    <Compile Include="ShapeCapture\Properties\Resources.Designer.cs" />
+    <Compile Include="ShapeCapture\Properties\Settings.Designer.cs" />
+    <Compile Include="ShapeCapture\RectangleCaptureShape.cs" />
+    <Compile Include="ShapeCapture\Shape.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ShapeCapture\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShapeCapture\obj\Debug\ShapeCapture.MainForm.resources" />
+    <EmbeddedResource Include="ShapeCapture\obj\Debug\ShapeCapture.Properties.Resources.resources" />
+    <EmbeddedResource Include="ShapeCapture\Properties\Resources.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include=".git\objects\info\" />
+    <Folder Include=".git\objects\pack\" />
+    <Folder Include=".git\refs\tags\" />
+    <Folder Include="ShapeCapture\bin\Release\" />
+    <Folder Include="ShapeCapture\obj\Debug\TempPE\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSHARP.Targets" />
+  <ProjectExtensions>
+    <VisualStudio AllowExistingFolder="true" />
+  </ProjectExtensions>
+</Project>
