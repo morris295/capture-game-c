@@ -7,3 +7,12 @@ C:\Users\Jesse\Documents\Visual Studio 2013\Projects\ShapeCapture\capture-game-c
 C:\Users\Jesse\Documents\Visual Studio 2013\Projects\ShapeCapture\capture-game-c\obj\x86\Debug\ShapeCapture.csproj.GenerateResource.Cache
 C:\Users\Jesse\Documents\Visual Studio 2013\Projects\ShapeCapture\capture-game-c\obj\x86\Debug\WindowsApplication.exe
 C:\Users\Jesse\Documents\Visual Studio 2013\Projects\ShapeCapture\capture-game-c\obj\x86\Debug\WindowsApplication.pdb
+E:\capture-game-c\bin\Debug\WindowsApplication.exe.config
+E:\capture-game-c\obj\x86\Debug\WindowsApplication.exe
+E:\capture-game-c\obj\x86\Debug\WindowsApplication.pdb
+E:\capture-game-c\bin\Debug\WindowsApplication.exe
+E:\capture-game-c\bin\Debug\WindowsApplication.pdb
+E:\capture-game-c\obj\x86\Debug\ShapeCapture.csprojResolveAssemblyReference.cache
+E:\capture-game-c\obj\x86\Debug\ShapeCapture.MainForm.resources
+E:\capture-game-c\obj\x86\Debug\ShapeCapture.ShapeCapture.Properties.Resources.resources
+E:\capture-game-c\obj\x86\Debug\ShapeCapture.csproj.GenerateResource.Cache

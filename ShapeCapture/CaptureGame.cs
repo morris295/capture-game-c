@@ -13,6 +13,7 @@ namespace ShapeCapture
         public Size BoardSize { set { _boardSize = value; } }
         private Random _random = new Random();
         private Collector _collector;
+        private int _maxShapes;
         private ICaptureShape[] _captureShapes;
 
         public int CollectorHits { get { return _collector.Collected; } }
@@ -31,7 +32,8 @@ namespace ShapeCapture
         {
             _boardSize = boardSize;
             _collector = new Collector(Color.Blue, new Point(0, 0), new Size(30, 30));
-            _captureShapes = new ICaptureShape[collectorShapeCount];
+            _maxShapes = collectorShapeCount;
+            _captureShapes = getShapeMaximum(CollectorPoints);
 
             for (int i = 0; i < _captureShapes.Length / 2; i++)
             {
@@ -68,6 +70,26 @@ namespace ShapeCapture
         public void Reset()
         {
             _collector.Reset();
+        }
+
+        public ICaptureShape[] getShapeMaximum(int collectorPoints)
+        {
+            if (collectorPoints <= 100)
+            {
+                return new ICaptureShape[_maxShapes - 20];
+            }
+
+            if(collectorPoints > 100 && collectorPoints <= 200)
+            {
+                return new ICaptureShape[_maxShapes - 10];
+            }
+
+            if(collectorPoints > 200 && collectorPoints <= 300)
+            {
+                return new ICaptureShape[_maxShapes];
+            }
+
+            return null;
         }
     }
 }
