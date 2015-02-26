@@ -96,7 +96,9 @@
     <Compile Include="ShapeCapture\ICaptureShape.cs" />
     <Compile Include="ShapeCapture\ICollector.cs" />
     <Compile Include="ShapeCapture\IShape.cs" />
-    <Compile Include="ShapeCapture\MainForm.cs" />
+    <Compile Include="ShapeCapture\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ShapeCapture\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>

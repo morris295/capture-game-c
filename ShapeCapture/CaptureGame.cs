@@ -31,54 +31,15 @@ namespace ShapeCapture
         {
             _boardSize = boardSize;
             _collector = new Collector(Color.Blue, new Point(0, 0), new Size(30, 30));
+            _captureShapes = new ICaptureShape[collectorShapeCount];
 
-            if(_collector.CollectedPoints < 5)
+            for (int i = 0; i < _captureShapes.Length / 2; i++)
             {
-                _captureShapes = new ICaptureShape[5];
-                for (int i = 0; i < 3; i++)
-                {
-                    _captureShapes[i] = new EllipseCaptureShape(_random, new Size(20, 20), _boardSize, Color.Red, -5);
-                }
-                for (int i = 3; i < 5; i++)
-                {
-                    _captureShapes[i] = new RectangleCaptureShape(_random, new Size(20, 20), _boardSize, Color.Green, 5);
-                }
+                _captureShapes[i] = new EllipseCaptureShape(_random, new Size(20, 20), _boardSize, Color.Red, -5);
             }
-            else if (_collector.CollectedPoints > 5 && _collector.CollectedPoints < 10 )
+            for (int i = 3; i < _captureShapes.Length; i++)
             {
-                _captureShapes = new ICaptureShape[10];
-                for (int i = 0; i < 5; i++)
-                {
-                    _captureShapes[i] = new EllipseCaptureShape(_random, new Size(20, 20), _boardSize, Color.Red, -5);
-                }
-                for (int i = 5; i < 10; i++)
-                {
-                    _captureShapes[i] = new RectangleCaptureShape(_random, new Size(20, 20), _boardSize, Color.Green, 5);
-                }
-            }
-            else if (_collector.CollectedPoints > 10 && _collector.CollectedPoints < 15)
-            {
-                _captureShapes = new ICaptureShape[15];
-                for (int i = 0; i < 7; i++)
-                {
-                    _captureShapes[i] = new EllipseCaptureShape(_random, new Size(20, 20), _boardSize, Color.Red, -5);
-                }
-                for (int i = 7; i < 15; i++)
-                {
-                    _captureShapes[i] = new RectangleCaptureShape(_random, new Size(20, 20), _boardSize, Color.Green, 5);
-                }
-            }
-            else if (_collector.CollectedPoints > 15 || _collector.CollectedPoints == 20)
-            {
-                _captureShapes = new ICaptureShape[20];
-                for (int i = 0; i < 10; i++)
-                {
-                    _captureShapes[i] = new EllipseCaptureShape(_random, new Size(20, 20), _boardSize, Color.Red, -5);
-                }
-                for (int i = 10; i < 20; i++)
-                {
-                    _captureShapes[i] = new RectangleCaptureShape(_random, new Size(20, 20), _boardSize, Color.Green, 5);
-                }
+                _captureShapes[i] = new RectangleCaptureShape(_random, new Size(20, 20), _boardSize, Color.Green, 5);
             }
         }
 
