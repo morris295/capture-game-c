@@ -14,7 +14,7 @@ namespace ShapeCapture
     {
         CaptureGame _captureGame;               // Collector game object
         private bool _playGame = true;          // Play/pause toggle
-        private int _maxShapes = 30;            // Default maximum number of shapes
+        private int _maxShapes = 10;            // Default maximum number of shapes
 
         public MainForm()
         {
@@ -49,9 +49,8 @@ namespace ShapeCapture
 
         private void mainPictureBox_Paint(object sender, PaintEventArgs e)
         {
-            _captureGame.getShapeMaximum(_captureGame.CollectorPoints);
             _captureGame.DrawCollector(e.Graphics);
-            _captureGame.DrawCollectorShapes(e.Graphics);
+            _captureGame.DrawCollectorShapes(e.Graphics, _captureGame.CollectorPoints);
             string gameStatus = "Hits: " + _captureGame.CollectorHits + "  -  Points: " + _captureGame.CollectorPoints;
             using (Font font = new Font("Arial", 12, FontStyle.Bold))
             using (SolidBrush brush = new SolidBrush(Color.Black))

@@ -14,7 +14,8 @@ namespace ShapeCapture
         private Random _random = new Random();
         private Collector _collector;
         private int _maxShapes;
-        private ICaptureShape[] _captureShapes;
+        //private ICaptureShape[] _captureShapes;
+        private List<ICaptureShape> _captureShapes = new List<ICaptureShape>();
 
         public int CollectorHits { get { return _collector.Collected; } }
         public int CollectorPoints { get { return _collector.CollectedPoints; } }
@@ -33,28 +34,52 @@ namespace ShapeCapture
             _boardSize = boardSize;
             _collector = new Collector(Color.Blue, new Point(0, 0), new Size(30, 30));
             _maxShapes = collectorShapeCount;
-            _captureShapes = getShapeMaximum(CollectorPoints);
 
-            for (int i = 0; i < _captureShapes.Length / 2; i++)
+            /**
+             * Initialize the list to a set of 10 shapes.
+             */
+            for (int i = 0; i < 2 / 2; i++)
             {
-                _captureShapes[i] = new EllipseCaptureShape(_random, new Size(20, 20), _boardSize, Color.Red, -5);
+                _captureShapes.Add(new EllipseCaptureShape(_random, new Size(20, 20), _boardSize, Color.Red, -5));
             }
-            for (int i = 3; i < _captureShapes.Length; i++)
+            for (int i = (2/2); i < 2; i++)
             {
-                _captureShapes[i] = new RectangleCaptureShape(_random, new Size(20, 20), _boardSize, Color.Green, 5);
+                _captureShapes.Add(new RectangleCaptureShape(_random, new Size(20, 20), _boardSize, Color.Green, 5));
             }
         }
 
-        public void DrawCollectorShapes(Graphics graphics)
+        public void DrawCollectorShapes(Graphics graphics, int totalPoints)
         {
-            // foreach in C# is read-only (immutable)
-            foreach (ICaptureShape collectorShape in _captureShapes)
-                collectorShape.Draw(graphics);
+            int totalShapes = 0;
+            if(totalPoints < 100) 
+            {
+                totalShapes = 2;
+            }
+            else if (totalPoints >= 100 && totalPoints < 250)
+            {
+                totalShapes = 4;
+                addShapes(totalShapes, _captureShapes);
+            }
+            else if (totalPoints >= 250 && totalPoints < 350)
+            {
+                totalShapes = 6;
+                addShapes(totalShapes, _captureShapes);
+            }
+            else if (totalPoints > 350)
+            {
+                totalShapes = _maxShapes;
+                addShapes(totalShapes, _captureShapes);
+            }
+
+            for(int i = 0; i < totalShapes; i++)
+            {
+                _captureShapes[i].Draw(graphics);
+            }
         }
 
         public void AnimateCollectorShapes()
         {
-            for (int i = 0; i < _captureShapes.Length; i++)
+            for (int i = 0; i < _captureShapes.Count; i++)
             {
                 _captureShapes[i].Animate(_boardSize);
                 if (_captureShapes[i].Hit(_collector.Location, _collector.Dimensions))
@@ -72,24 +97,16 @@ namespace ShapeCapture
             _collector.Reset();
         }
 
-        public ICaptureShape[] getShapeMaximum(int collectorPoints)
+        public void addShapes(int shapesToAdd, List<ICaptureShape> List)
         {
-            if (collectorPoints <= 100)
+            for (int i = 0; i < (shapesToAdd / 2); i++)
             {
-                return new ICaptureShape[_maxShapes - 20];
+                _captureShapes.Add(new EllipseCaptureShape(_random, new Size(20, 20), _boardSize, Color.Red, -5));
             }
-
-            if(collectorPoints > 100 && collectorPoints <= 200)
+            for (int i = (shapesToAdd / 2); i < shapesToAdd; i++)
             {
-                return new ICaptureShape[_maxShapes - 10];
+                _captureShapes.Add(new RectangleCaptureShape(_random, new Size(20, 20), _boardSize, Color.Green, 5));
             }
-
-            if(collectorPoints > 200 && collectorPoints <= 300)
-            {
-                return new ICaptureShape[_maxShapes];
-            }
-
-            return null;
         }
     }
 }
