@@ -14,7 +14,6 @@ namespace ShapeCapture
         private Random _random = new Random();
         private Collector _collector;
         private int _maxShapes;
-        //private ICaptureShape[] _captureShapes;
         private List<ICaptureShape> _captureShapes = new List<ICaptureShape>();
 
         public int CollectorHits { get { return _collector.Collected; } }
@@ -35,43 +34,21 @@ namespace ShapeCapture
             _collector = new Collector(Color.Blue, new Point(0, 0), new Size(30, 30));
             _maxShapes = collectorShapeCount;
 
-            /**
-             * Initialize the list to a set of 10 shapes.
-             */
-            for (int i = 0; i < 2 / 2; i++)
-            {
-                _captureShapes.Add(new EllipseCaptureShape(_random, new Size(20, 20), _boardSize, Color.Red, -5));
-            }
-            for (int i = (2/2); i < 2; i++)
-            {
-                _captureShapes.Add(new RectangleCaptureShape(_random, new Size(20, 20), _boardSize, Color.Green, 5));
-            }
+            //Initialize the list.
+            _captureShapes = populateShapeList(
+                setShapePopulation(_collector.CollectedPoints),
+                _captureShapes);
         }
 
         public void DrawCollectorShapes(Graphics graphics, int totalPoints)
         {
-            int totalShapes = 0;
-            if(totalPoints < 100) 
-            {
-                totalShapes = 2;
-            }
-            else if (totalPoints >= 100 && totalPoints < 250)
-            {
-                totalShapes = 4;
-                addShapes(totalShapes, _captureShapes);
-            }
-            else if (totalPoints >= 250 && totalPoints < 350)
-            {
-                totalShapes = 6;
-                addShapes(totalShapes, _captureShapes);
-            }
-            else if (totalPoints > 350)
-            {
-                totalShapes = _maxShapes;
-                addShapes(totalShapes, _captureShapes);
-            }
+            //Re-populate the list based on score.
+            _captureShapes = populateShapeList(
+                setShapePopulation(_collector.CollectedPoints), 
+                _captureShapes);
 
-            for(int i = 0; i < totalShapes; i++)
+            //Draw all shapes in population.
+            for(int i = 0; i < _captureShapes.Count; i++)
             {
                 _captureShapes[i].Draw(graphics);
             }
@@ -97,15 +74,50 @@ namespace ShapeCapture
             _collector.Reset();
         }
 
-        public void addShapes(int shapesToAdd, List<ICaptureShape> List)
+        public List<ICaptureShape> populateShapeList(int shapesToAdd, List<ICaptureShape> list)
         {
+            //Empty list so that it isn't just adding shapes perpetually.
+            if (list != null)
+            {
+                list.Clear();
+            }
+
+            //Add shapes splitting the population between the negative ellipse shape and the positive rectangle shape.
             for (int i = 0; i < (shapesToAdd / 2); i++)
             {
-                _captureShapes.Add(new EllipseCaptureShape(_random, new Size(20, 20), _boardSize, Color.Red, -5));
+                list.Add(new EllipseCaptureShape(_random, new Size(20, 20), _boardSize, Color.Red, -5));
             }
             for (int i = (shapesToAdd / 2); i < shapesToAdd; i++)
             {
-                _captureShapes.Add(new RectangleCaptureShape(_random, new Size(20, 20), _boardSize, Color.Green, 5));
+                list.Add(new RectangleCaptureShape(_random, new Size(20, 20), _boardSize, Color.Green, 5));
+            }
+
+            return list;
+        }
+
+        public int setShapePopulation(int totalScore)
+        {
+            int population = 0;
+
+            if(totalScore <= 300)
+            {
+                population = 10;
+                return population;
+            }
+            else if (totalScore <= 500)
+            {
+                population = 15;
+                return population;
+            }
+            else if (totalScore <= 700)
+            {
+                population = _maxShapes;
+                return population;
+            }
+            else
+            {
+                population = _maxShapes;
+                return population;
             }
         }
     }

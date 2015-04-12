@@ -14,7 +14,7 @@ namespace ShapeCapture
     {
         CaptureGame _captureGame;               // Collector game object
         private bool _playGame = true;          // Play/pause toggle
-        private int _maxShapes = 10;            // Default maximum number of shapes
+        private int _maxShapes = 20;            // Default maximum number of shapes
 
         public MainForm()
         {
